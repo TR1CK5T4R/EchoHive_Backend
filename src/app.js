@@ -49,6 +49,14 @@ app.use('/api/auth', authRoutes);
 app.use('/api/events', eventRoutes);
 app.use('/api/opt-in', optInRoutes);
 
+// Root route handler
+app.get('/', (req, res) => {
+    res.status(200).json({
+        success: true,
+        message: 'Welcome to LouderWorld API'
+    });
+});
+
 // Catch 404 and forward to error handler
 app.use((req, res, next) => {
     const error = new Error(`Not Found - ${req.originalUrl}`);
